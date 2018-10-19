@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head>
+<title>math practice</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+<style>
+
+#calculate
+{
+ width:300px;
+ padding-top:100px;
+ padding-bottom:20px;
+ margin:0 auto;
+}
+
+#jia
+{
+  width:70px;
+}
+#jian
+{
+  width:70px;
+}
+#cheng
+{
+  width:70px;
+}
+#chu
+{
+  width:70px;
+}
+
+
+#result
+{
+  margin-top: 25px;
+}
+
+#clear
+{
+  margin-top: 25px;
+  width: 300px;
+}
+
+</style>
+
+
+<script>
+
+$(document).ready(function(){
+  $("#jia").on('click',function(){
+    var x = parseInt(document.getElementById("num1").value);
+    var y = parseInt(document.getElementById("num2").value);
+    var z = x+y
+    $("#num3").val(z);
+  })
+
+  $("#jian").on('click',function(){
+    var x = parseInt(document.getElementById("num1").value);
+    var y = parseInt(document.getElementById("num2").value);
+    var z = x-y
+    $("#num3").val(z);
+  })
+
+  $("#cheng").on('click',function(){
+    var x = parseInt(document.getElementById("num1").value);
+    var y = parseInt(document.getElementById("num2").value);
+    var z = x*y
+    $("#num3").val(z);
+  })
+
+  $("#chu").on('click',function(){
+    var x = parseInt(document.getElementById("num1").value);
+    var y = parseInt(document.getElementById("num2").value);
+    var z = x/y
+    $("#num3").val(z);
+  })
+
+  $("#clear").on('click',function(){
+    $("#num1").val("");
+    $("#num2").val("");
+    $("#num3").val("");
+  })
+})
+
+</script>
+
+</head>
+
+<body>
+
+<div id="calculate" align="center">
+  <div class="number">
+<input class="form-control" id="num1" type="text" placeholder="first number"></input><br>
+<input class="form-control" id="num2" type="text" placeholder="second number"></input><br>
+
+  </div>
+
+  <div class="buttons">
+  <button type="button" id="jia" class="btn btn-outline-primary">加</button>
+  <button type="button" id="jian" class="btn btn-outline-secondary">减</button>
+  <button type="button" id="cheng" class="btn btn-outline-success">乘</button>
+  <button type="button" id="chu" class="btn btn-outline-danger">除</button>
+</div>
+
+  <div id="result">
+  <input class="form-control" id="num3" type="text" placeholder="your answer"></input>
+  </div>
+
+<div id="c">
+    <button type="button" id="clear" class="btn btn-outline-info">清零</button>
+</div>
+</div>
+
+</body>
+</html>
