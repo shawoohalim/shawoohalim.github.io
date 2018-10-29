@@ -29,27 +29,15 @@
   padding:35px;
 }
 
-        ul li{list-style-type: none}
-        #banner{
-            width: 1440px;
-            height: 405px;
-            overflow: hidden;
-
-
-        }
-        #banner ul{
-            width: 5760px;
-            overflow: hidden;
-        }
-        #banner ul>li{
-            width: 720px;
-            height: 405px;
-            float: left;
-        }
-        img{
-            max-width: 100%;
-        }
-
+.miaoshu{
+  font-family:Georgia,"Times New Roman",Times,serif;
+  font-size:30px;
+  color:white;
+  text-align:center;
+  height:120px;
+  padding-top:40px;
+  margin-bottom:0px;
+}
 
 
 
@@ -58,21 +46,13 @@
 <script>
 
 $(document).ready(function(){
-    $('#right').click(function () {
-        $("#banner ul").animate({marginLeft:"-720px"},600, function () {
-            $("#banner ul>li").eq(0).appendTo($("#banner ul"));
-            $("#banner ul").css('marginLeft','0px');
-        });
-    })
-    $('#left').click(function () {
-        $("#banner ul").css('marginLeft','-720px');
-        $("#banner ul>li").eq(3).prependTo($("#banner ul"));
-        $("#banner ul").animate({marginLeft:"0px"},600);
-    });
-
-
 $("#showdate").click(function(){
     $("#idol").hide();
+    $("#zongfen1").hide();
+    $("#yinyuan1").hide();
+      $("#youguan1").hide();
+        $("#xiaoliang1").hide();
+          $("#top1").hide();
 			if($("#date").css("display")=="none"){
 				$("#date").show();
 			}else{
@@ -82,12 +62,90 @@ $("#showdate").click(function(){
 
     $("#showidol").click(function(){
       $("#date").hide();
+      $("#zongfen1").hide();
+      $("#yinyuan1").hide();
+        $("#youguan1").hide();
+          $("#xiaoliang1").hide();
+            $("#top1").hide();
     			if($("#idol").css("display")=="none"){
     				$("#idol").show();
     			}else{
     				$("#idol").hide();
     			}
     		});
+
+        $("#zongfen").click(function(){
+          $("#idol").hide();
+            $("#date").hide();
+            $("#yinyuan1").hide();
+              $("#youguan1").hide();
+                $("#xiaoliang1").hide();
+                  $("#top1").hide();
+        			if($("#zongfen1").css("display")=="none"){
+        				$("#zongfen1").show();
+        			}else{
+        				$("#zongfen1").hide();
+        			}
+        		});
+
+            $("#yinyuan").click(function(){
+              $("#idol").hide();
+                $("#date").hide();
+                $("#zongfen1").hide();
+                  $("#youguan1").hide();
+                    $("#xiaoliang1").hide();
+                      $("#top1").hide();
+            			if($("#yinyuan1").css("display")=="none"){
+            				$("#yinyuan1").show();
+            			}else{
+            				$("#yinyuan1").hide();
+            			}
+            		});
+
+                $("#youguan").click(function(){
+                  $("#idol").hide();
+                    $("#date").hide();
+                    $("#zongfen1").hide();
+                      $("#yinyuan1").hide();
+                        $("#xiaoliang1").hide();
+                          $("#top1").hide();
+                			if($("#youguan1").css("display")=="none"){
+                				$("#youguan1").show();
+                			}else{
+                				$("#youguan1").hide();
+                			}
+                		});
+
+                    $("#xiaoliang").click(function(){
+                      $("#idol").hide();
+                        $("#date").hide();
+                        $("#zongfen1").hide();
+                          $("#yinyuan1").hide();
+                            $("#youguan1").hide();
+                              $("#top1").hide();
+                          if($("#xiaoliang1").css("display")=="none"){
+                            $("#xiaoliang1").show();
+                          }else{
+                            $("#xiaoliang1").hide();
+                          }
+                        });
+
+                        $("#top").click(function(){
+                          $("#idol").hide();
+                            $("#date").hide();
+                            $("#zongfen1").hide();
+                              $("#yinyuan1").hide();
+                                $("#youguan1").hide();
+                                  $("xiaoliang1").hide();
+                              if($("#top1").css("display")=="none"){
+                                $("#top1").show();
+                              }else{
+                                $("#top1").hide();
+                              }
+                            });
+
+
+
 
 })
 
@@ -100,37 +158,41 @@ $("#showdate").click(function(){
 
       <div id="biaoti"> KOREAN IDOL GROUP MUSIC ALBUM <br>performance evaluation for first week after release </div>
 
-      <div id="banner">
-          <ul>
-            <li><img src="https://shawoohalim.github.io/BG/blackpink.jpg" alt="" width="720px" height="405px"/> </li>
-            <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/bts.jpg" alt="" width="720px" height="405px"/> </li>
-            <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/btob.jpg" alt="" width="720px" height="405px"/> </li>
-            <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/mamamoo.jpg" alt="" width="720px" height="405px"/> </li>
-            <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/ikon.jpg" alt="" width="720px" height="405px"/> </li>
-            <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/rv.jpg" alt="" width="720px" height="405px"/> </li>
-            <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/wannaone.jpg" alt="" width="720px" height="405px"/> </li>
-            <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/gfriend.jpg" alt="" width="720px" height="405px"/> </li>
-              <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/winner.jpg" alt="" width="720px" height="405px"/> </li>
-                <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/twice.jpg" alt="" width="720px" height="405px"/> </li>
-                  <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/got7.jpg" alt="" width="720px" height="405px"/> </li>
-                    <li><img src="file:///Users/wuyalin/Desktop/GitHub/Assignments/BG/svt.jpg" alt="" width="720px" height="405px"/> </li>
-
-          </ul>
-      </div>
 
       <div id="move" align="center">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <button type="button" id="showidol" class="btn btn-outline-warning">Idol Groups that are included</button>
         <button type="button" id="showdate" class="btn btn-outline-warning">Overall Come Back Date Schedule (updated to Oct.1)</button>
-        <button type="button" id="result" class="btn btn-outline-warning" onclick="{location.href='https://shawoohalim.github.io/assignment4_evaluation_details.html'}">See Performance Evaluation</button>
-        <button type="button" id="left" class="btn btn-outline-light">上一张</button>
-        <button type="button" id="right" class="btn btn-outline-light">下一张</button>
+        <button type="button" id="top" class="btn btn-outline-warning">Top 3</button>
+
+        <button type="button" id="zongfen" class="btn btn-outline-warning">Composite Score</button>
+
+        <button type="button" id="yinyuan" class="btn btn-outline-warning">Streaming Index</button>
+
+        <button type="button" id="youguan" class="btn btn-outline-warning">MV View Counts</button>
+
+        <button type="button" id="xiaoliang" class="btn btn-outline-warning">Album Sales Volume</button>
+
       </div>
 
 
       <iframe id="idol" class="airtable-embed" style="display:none" src="https://airtable.com/embed/shrQ8ztxu1jQRTdek?backgroundColor=teal&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
       <iframe id="date" class="airtable-embed" style="display:none" src="https://airtable.com/embed/shrqdLSgbF31CEqiE?backgroundColor=teal&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+      <iframe id="zongfen1" class="airtable-embed" style="display:none" src="https://airtable.com/embed/shrRVHpkqN7YYmI6C?backgroundColor=teal&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+      <iframe id="yinyuan1" class="airtable-embed" style="display:none" src="https://airtable.com/embed/shrd4yO45hWd27FW3?backgroundColor=teal&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+      <iframe id="youguan1" class="airtable-embed" style="display:none" src="https://airtable.com/embed/shr8dK337DAIMiC7L?backgroundColor=teal&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+      <iframe id="xiaoliang1" class="airtable-embed" style="display:none" src="https://airtable.com/embed/shrnwsynFjqtba1E2?backgroundColor=teal&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
 
+      <div id="top1" style="display:none">
+        <div class="miaoshu">TOP 3 in Overall Evaluation</div>
+      <iframe class="airtable-embed" src="https://airtable.com/embed/shrXpxohQ3GR4JQGF?backgroundColor=teal&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        <div class="miaoshu">TOP 3 in Streaming Media Index</div>
+      <iframe class="airtable-embed" src="https://airtable.com/embed/shrdLtAve8CJxlZEq?backgroundColor=teal&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        <div class="miaoshu">TOP 3 in MV View Count</div>
+      <iframe class="airtable-embed" src="https://airtable.com/embed/shrPGjfkwcE2kC3Ap?backgroundColor=teal&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+        <div class="miaoshu">TOP 3 in Album Sales Volume</div>
+      <iframe class="airtable-embed" src="https://airtable.com/embed/shrzBTYehN4c9qem3?backgroundColor=teal&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+      </div>
 
 </body>
 </html>
