@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+ <html>
+      <head>
+           <title>assignment5</title>
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+           <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css"/>
+           <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+           <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>
+           <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.js"></script>
+           <link href="//cdnjs.cloudflare.com/ajax/libs/c3/0.1.29/c3.css" rel="stylesheet" type="text/css">
+      </head>
+
+      <body>
+           <br /><br />
+           <div class="container">
+                <h1 align="center">Performance Evaluation</h3><br />
+                <h3 align="center">korean idol group music album</h3><br />
+                <table id="data-table" class="table table-bordered">
+                     <thead>
+                          <tr>
+                               <th>Album</th>
+                               <th>Idol Group</th>
+                               <th>Title Track</th>
+                               <th>Composite Score</th>
+                               <th>Release Date</th>
+                          </tr>
+                     </thead>
+                </table>
+                <div id="chart"></div>
+           </div>
+      </body>
+ </html>
+
+ <script>
+ $(document).ready(function(){
+        var items = [];
+        var i = 0;
+        var airtable_read_endpoint = "https://api.airtable.com/v0/app34pjKOIFnjb2zP/Album%20basic%20information?api_key=keyObmvKsLHdsrr8D";
+        var dataSet = [];
+        $.getJSON(airtable_read_endpoint, function(result) {
+               $.each(result.records, function(key,value) {
+                   items = [];
+                       items.push(value.fields.Album);
+                       items.push(value.fields.idolgroup);
+                       items.push(value.fields.titletrack);
+                       items.push(value.fields.compositescore);
+                       items.push(value.fields.release_date);
+                       dataSet.push(items);
+                });
+             $('#data-table').DataTable( {
+                 data: dataSet,
+                 retrieve: true,
+                 columns: [
+                     { title: "Album",
+                       defaultContent:""},
+                     { title: "Idol Group",
+                       defaultContent:"" },
+                     { title: "Title Track",
+                       defaultContent:""},
+                     { title: "Composite Score",
+                       defaultContent:""},
+                     { title: "Release Date",
+                         defaultContent:""},
+                 ]
+        });
+     });
+ });
+ </script>
