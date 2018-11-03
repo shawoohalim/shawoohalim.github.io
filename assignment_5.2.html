@@ -23,6 +23,9 @@
                                <th>Album</th>
                                <th>Idol Group</th>
                                <th>Title Track</th>
+                               <th>Album Sales Score</th>
+                               <th>MV View Count Score</th>
+                               <th>Sreaming Media Score</th>
                                <th>Composite Score</th>
                                <th>Release Date</th>
                           </tr>
@@ -47,6 +50,9 @@
                        items.push(value.fields.Album);
                        items.push(value.fields.idolgroup);
                        items.push(value.fields.titletrack);
+                       items.push(value.fields.album_sales_score);
+                       items.push(value.fields.score_for_view_count);
+                       items.push(value.fields.score_for_streaming_media_index);
                        items.push(value.fields.compositescore);
                        items.push(value.fields.release_date);
                        dataSet.push(items);
@@ -60,6 +66,12 @@
                      { title: "Idol Group",
                        defaultContent:"" },
                      { title: "Title Track",
+                       defaultContent:""},
+                     { title: "Album Sales Score",
+                       defaultContent:""},
+                     { title: "MV View Count Score",
+                       defaultContent:""},
+                     { title: "Sreaming Media Score",
                        defaultContent:""},
                      { title: "Composite Score",
                        defaultContent:""},
