@@ -18,9 +18,11 @@
 
  var map = L.map('mapid')
           .addLayer(mapboxTiles)
-          .setView([51.507222, -0.1275], 13);
+          .setView([24.446111, 118.067778], 14);
 
-var marker = L.marker([51.505, -0.09]).addTo(mapid)
+var marker = L.marker([24.446111, 118.067778], {draggable: true})
+            .bindPopup( '<a href="https://zh.wikipedia.org/wiki/%E5%8E%A6%E9%97%A8%E5%B8%82">Amoy</a>')
+            .addTo(map);
  </script>
 </body>
 </html>
