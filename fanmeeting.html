@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>NINEPERCENT PERFORMANCE EVALUATION</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="css/core-style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+    #scrollUp {
+        background-color: #8fc1e3;
+        border-radius: 0;
+        bottom: 60px;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+        color: $white-color;
+        font-size: 24px;
+        height: 40px;
+        line-height: 40px;
+        right: 60px;
+        text-align: center;
+        width: 40px;
+        @media #{$breakpoint-xs} {
+            bottom: 30px;
+            right: 30px;
+        }
+    }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/leaflet.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+
+</head>
+
+<body>
+    <!-- ##### Header Area Start ##### -->
+    <header class="header_area">
+        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar" id="essenceNav">
+                <!-- Logo -->
+                <a class="nav-brand" href="index.html"><img src="https://dl.airtable.com/hO4sNlwZRLC5mjVgEeHr_LOGO.png" alt=""></a>
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+                          <li><a href="#">关于组合</a>
+                              <ul class="dropdown">
+                                  <li><a href="#">组合简介</a></li>
+                                  <li><a href="#">成员简介</a></li>
+                              </ul>
+                          </li>
+                            <li><a href="#">团队评价</a>
+                                <ul class="dropdown">
+                                    <li><a href="musicwork.html">音乐作品</a></li>
+                                    <li><a href="#">综艺演出</a></li>
+                                    <li><a href="#">品牌代言</a></li>
+                                    <li><a href="fanmeeting.html">粉丝见面会</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">个人评价</a>
+                              <ul class="dropdown">
+                                  <li><a href="#">音乐作品</a></li>
+                                  <li><a href="#">综艺演出</a></li>
+                                  <li><a href="#">时尚资源</a></li>
+                                  <li><a href="#">品牌代言</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="#">流量指数</a></li>
+                        </ul>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+
+    </header>
+
+    <div class="contact-area d-flex align-items-center" position:relative>
+
+<div class="google-map">
+          <div id="googleMap"></div>
+          <script>
+            var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 18,})
+
+            var map = L.map('googleMap')
+                  .addLayer(mapboxTiles)
+                  .setView([30.583333,114.316667], 5);
+
+                  var items = [];
+            var airtable_read_endpoint = "https://api.airtable.com/v0/app9QmDpE8gaah4JA/fanmeeting?api_key=keyObmvKsLHdsrr8D&maxRecords=12&view=Grid%20view";
+
+            $.getJSON(airtable_read_endpoint, function(result) {
+                   $.each(result.records, function(key,value) {
+                       items = {};
+                           items["name"] = value.fields.Name;
+                           items["url"] = value.fields.date;
+                           items["latitud"] = value.fields.Lat;
+                           items["longitud"] = value.fields.Lng;
+                           data.push(items);
+                           console.log(items);
+                    }); // end .each
+            }); // end getJSON
+                  </script>
+                  <script>
+        function show_city(){
+
+          for (var i in data) {
+              var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
+              L.marker( latlng )
+                  .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url+'" width = "80px"><br>'+data[i].name + '</a>' )
+                  .addTo(map);
+          }
+        }
+        </script>
+                </div>
+
+
+        <div class="contact-info">
+            <h2>- THX with LOVE -</h2>
+            <p>NINE PERCENT自5月起前往全国多个城市与粉丝见面。这是NINE PERCENT首次以偶像组合的名义公开演出。由于人气火爆，见面会门票抢购创下多个演出场馆预售记录，深圳、杭州等场次均宣布加场。</p>
+
+            <div class="contact-address mt-50">
+                <div class="cart-fav-box d-flex align-items-center">
+                      <!-- Cart -->
+                      <button type="submit" name="addtocart" value="5" class="btn essence-btn" onclick="show_city();" style="background-color:#8fc1e3">查 看 场 次</button>
+
+                      </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer_area clearfix">
+
+<div class="row mt-5">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | shawoohalim performance evaluation for npc
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="js/classy-nav.min.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+
+</body>
+
+</html>
