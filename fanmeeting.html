@@ -108,6 +108,7 @@
                   .addLayer(mapboxTiles)
                   .setView([30.583333,114.316667], 5);
 
+            var data = [];
                   var items = [];
             var airtable_read_endpoint = "https://api.airtable.com/v0/app9QmDpE8gaah4JA/fanmeeting?api_key=keyObmvKsLHdsrr8D&maxRecords=12&view=Grid%20view";
 
@@ -129,7 +130,6 @@
           for (var i in data) {
               var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
               L.marker( latlng )
-                  .bindPopup( '<a href="' + data[i].url + '" target="_blank">' + '<img src="' + data[i].image_url+'" width = "80px"><br>'+data[i].name + '</a>' )
                   .addTo(map);
           }
         }
