@@ -131,33 +131,37 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
                   <div class="col-12 col-md-4 col-lg-3">
                       <div class="shop_sidebar_area">
 
-                          <!-- ##### Single Widget ##### -->
-                          <div class="widget catagory mb-50">
-                              <!-- Widget Title -->
-                              <h6 class="widget-title mb-30">行 程 分 类</h6>
+                        <!-- ##### Single Widget ##### -->
+                        <div class="widget catagory mb-50">
+                            <!-- Widget Title -->
+                            <h6 class="widget-title mb-30">资 源 分 类</h6>
 
-                              <!--  Catagories  -->
-                              <div class="catagories-menu">
-                                  <ul id="menu-content2" class="menu-content collapse show">
-                                      <!-- Single Item -->
-                                      <li data-toggle="collapse" data-target="#clothing">
-                                          <a href="#">音乐作品</a>
-                                      </li>
-                                      <!-- Single Item -->
-                                      <li data-toggle="collapse" data-target="#shoes" class="collapsed">
-                                          <a href="#">影视综艺</a>
-                                      </li>
-                                      <!-- Single Item -->
-                                      <li data-toggle="collapse" data-target="#accessories" class="collapsed">
-                                          <a href="#">时尚杂志</a>
-                                      </li>
-                                      <!-- Single Item -->
-                                      <li data-toggle="collapse" data-target="#accessories" class="collapsed">
-                                          <a href="#">品牌合作</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
+                            <!--  Catagories  -->
+                            <div class="catagories-menu">
+                                <ul id="menu-content2" class="menu-content collapse show">
+                                  <!-- Single Item -->
+                                  <li data-toggle="collapse" data-target="#clothing">
+                                      <a id="allbtn" href="#">全部行程</a>
+                                  </li>
+                                    <!-- Single Item -->
+                                    <li data-toggle="collapse" data-target="#clothing">
+                                        <a id="musicbtn" href="#">音乐作品</a>
+                                    </li>
+                                    <!-- Single Item -->
+                                    <li data-toggle="collapse" data-target="#shoes" class="collapsed">
+                                        <a id="talentbtn" href="#">影视综艺</a>
+                                    </li>
+                                    <!-- Single Item -->
+                                    <li data-toggle="collapse" data-target="#accessories" class="collapsed">
+                                        <a id="magazinebtn" href="#">时尚杂志</a>
+                                    </li>
+                                    <!-- Single Item -->
+                                    <li data-toggle="collapse" data-target="#accessories" class="collapsed">
+                                        <a id="brandbtn" href="#">品牌合作</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
 
                       </div>
@@ -165,6 +169,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
                   <div class="col-12 col-md-8 col-lg-9">
                       <div class="shop_grid_product_area">
+
+                        <div id="music">
 
                         <div class="row">
                                                    <div class="col-12">
@@ -201,6 +207,9 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
                               </div>
 
                             </div>
+                          </div>
+                          <div id="talent">
+
 
                               <div class="row">
                                                          <div class="col-12">
@@ -257,6 +266,10 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 
                             </div>
+                          </div>
+
+                          <div id="magazine">
+
 
                             <div class="row">
                                                        <div class="col-12">
@@ -346,6 +359,10 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 
                             </div>
+                          </div>
+
+                          <div id="brand">
+
 
                             <div class="row">
                                                        <div class="col-12">
@@ -419,6 +436,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
                             </div>
 
 
+                          </div>
 
                           </div>
                       </div>
@@ -459,6 +477,46 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
     <script src="js/classy-nav.min.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <!--分类js-->
+    <script>
+    $(document).ready(function(){
+$("#musicbtn").click(function(){
+    $("#talent").hide();
+    $("#magazine").hide();
+    $("#brand").hide();
+    $("#music").show();
+    });
+
+    $("#talentbtn").click(function(){
+        $("#music").hide();
+        $("#magazine").hide();
+        $("#brand").hide();
+        $("#talent").show();
+        });
+
+        $("#magazinebtn").click(function(){
+            $("#music").hide();
+            $("#magazine").show();
+            $("#brand").hide();
+            $("#talent").hide();
+            });
+
+            $("#brandbtn").click(function(){
+                $("#music").hide();
+                $("#magazine").hide();
+                $("#brand").show();
+                $("#talent").hide();
+                });
+
+                $("#allbtn").click(function(){
+                    $("#music").show();
+                    $("#magazine").show();
+                    $("#brand").show();
+                    $("#talent").show();
+                    });
+
+  })
+  </script>
 
 
 </body>
