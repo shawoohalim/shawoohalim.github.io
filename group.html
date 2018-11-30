@@ -152,6 +152,10 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
                                       <li data-toggle="collapse" data-target="#accessories" class="collapsed">
                                           <a id="brandbtn" href="#">品牌合作</a>
                                       </li>
+                                      <!-- Single Item -->
+                                      <li data-toggle="collapse" data-target="#shoes" class="collapsed">
+                                          <a id="fansbtn" href="#">粉丝见面会</a>
+                                      </li>
                                   </ul>
                               </div>
                           </div>
@@ -578,6 +582,54 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
                             </div>
                           </div>
 
+                          <div id="fans">
+                           <div class="row">
+                                                      <div class="col-12">
+                                                          <div class="product-topbar d-flex align-items-center justify-content-between">
+                                                              <!-- Total Products -->
+                                                              <div class="total-products">
+                                                                  <p>粉丝见面会共 <span style="color:#8fc1e3">1</span> 项</p>
+                                                              </div>
+                                                              <!-- Sorting -->
+                                                              </div>
+                                                          </div>
+                                                        </div>
+
+
+                             <div class="row">
+
+                                 <!-- Single Product -->
+                                 <div class="col-12 col-sm-6 col-lg-4">
+                                     <div class="single-product-wrapper">
+
+                                       <div class="product-img">
+                                         <!-- Product Image -->
+                                         <div class="product-img">
+                                             <img src="https://dl.airtable.com/HLQq2qH7TaGvss3dS3Dw_IMG_9650.JPG" alt="">
+
+                                         </div>
+
+                                         <!-- Product Badge -->
+                                         <div class="product-badge offer-badge" style="background-color:black">
+                                             <span style="color:white" href="fanmeeting.htmls">查看</span>
+                                         </div>
+                                       </div>
+
+
+                                         <!-- Product Description -->
+                                         <div class="product-description">
+                                             <h6>THX WITH LOVE</h6>
+                                             <span>城市：10</span><br>
+                                             <span>场次：17</span><br>
+                                                 <span>时间：2018-05-06 至 07-28</span><br>
+
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                               </div>
+
 
 
                           </div>
@@ -628,6 +680,8 @@ $("#musicbtn").click(function(){
     $("#magazine").hide();
     $("#brand").hide();
     $("#music").show();
+    $("#fans").hide();
+
 		});
 
     $("#talentbtn").click(function(){
@@ -635,6 +689,8 @@ $("#musicbtn").click(function(){
         $("#magazine").hide();
         $("#brand").hide();
         $("#talent").show();
+        $("#fans").hide();
+
     		});
 
         $("#magazinebtn").click(function(){
@@ -642,6 +698,8 @@ $("#musicbtn").click(function(){
             $("#magazine").show();
             $("#brand").hide();
             $("#talent").hide();
+            $("#fans").hide();
+
             });
 
             $("#brandbtn").click(function(){
@@ -649,13 +707,27 @@ $("#musicbtn").click(function(){
                 $("#magazine").hide();
                 $("#brand").show();
                 $("#talent").hide();
+                $("#fans").hide();
+
                 });
+
+                $("#fansbtn").click(function(){
+                    $("#music").hide();
+                    $("#magazine").hide();
+                    $("#brand").hide();
+                    $("#talent").hide();
+                    $("#fans").show();
+
+                    });
+
 
                 $("#allbtn").click(function(){
                     $("#music").show();
                     $("#magazine").show();
                     $("#brand").show();
                     $("#talent").show();
+                    $("#fans").show();
+
                     });
 
   })
