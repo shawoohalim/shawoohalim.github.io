@@ -101,7 +101,7 @@
                    $.each(result.records, function(key,value) {
                        items = {};
                            items["name"] = value.fields.Name;
-                           items["url"] = value.fields.date;
+                           items["date"] = value.fields.date;
                            items["latitud"] = value.fields.Lat;
                            items["longitud"] = value.fields.Lng;
                            data.push(items);
@@ -115,6 +115,7 @@
           for (var i in data) {
               var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
               L.marker( latlng )
+                  .bindPopup(  data[i].name+'<br>'+data[i].date )
                   .addTo(map);
           }
         }
