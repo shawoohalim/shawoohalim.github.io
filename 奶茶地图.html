@@ -42,23 +42,23 @@
     $.getJSON(airtable_read_endpoint, function(result) {
            $.each(result.records, function(key,value) {
                items1 = {};
-                   items1["name"] = value.fields.Name;
-                   items1["latitud"] = value.fields.Lat;
-                   items1["longitud"] = value.fields.Lng;
+                   items1["name"] = value.fields.Name1;
+                   items1["latitud"] = value.fields.Lat1;
+                   items1["longitud"] = value.fields.Lng1;
                    data.push(items1);
                    console.log(items1);
             }); // end .each
     }); // end getJSON
 
     var items2 = [];
-var airtable_read_endpoint = "https://api.airtable.com/v0/appLXe1CjtR38C1dJ/%E5%86%9C%E6%9E%97?api_key=keyObmvKsLHdsrr8D&maxRecords=3&view=Grid%20view";
+var airtable_read_endpoint = "https://api.airtable.com/v0/apptK8KFv0Aa97iUt/Table%201?api_key=keyObmvKsLHdsrr8D&maxRecords=3&view=Grid%20view";
 var data = [];
 $.getJSON(airtable_read_endpoint, function(result) {
      $.each(result.records, function(key,value) {
          items2 = {};
-             items2["name"] = value.fields.Name;
-             items2["latitud"] = value.fields.Lat;
-             items2["longitud"] = value.fields.Lng;
+             items2["name"] = value.fields.Name2;
+             items2["latitud"] = value.fields.Lat2;
+             items2["longitud"] = value.fields.Lng2;
              data.push(items2);
              console.log(items2);
       }); // end .each
