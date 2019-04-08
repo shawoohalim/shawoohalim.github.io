@@ -13,9 +13,10 @@
 </head>
 
 <body>
-  <h1>hometown of native korean members</h1>
+  <h1>奶茶图鉴</h1>
   <div id="map" style="width: 1200px; height: 800px"></div>
-  <button type="button" class="btn btn-warning" id='roll_up' onclick="show_hometown();">Show Universities</button><br>
+  <button type="button" class="btn btn-warning" id='roll_up' onclick="show_zonghe();">综合</button><br>
+  <button type="button" class="btn btn-warning" id='roll_up' onclick="show_nonglin();">农林</button><br>
   <script>
     var mapboxTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 18,})
 
@@ -24,32 +25,61 @@
           .setView([26.15,119.283333], 8);
 
           var schoolicon = L.icon ({
-							      iconUrl:'https://airtable.com/tblR6hCLM17qVJGrR/viwjTREEarfUHK7aS/recXY7UsWWQ0glQ5B',
+							      iconUrl:'https://dl.airtable.com/.attachments/541de0abb1d7539ae3383049b52bf6b1/8cb9ee93.png',
 							      iconSize:     [25, 25],
 							       popupAnchor:  [0, -15]
 							    });
 
-          var items = [];
-    var airtable_read_endpoint = "https://api.airtable.com/v0/appLXe1CjtR38C1dJ/Table%201?api_key=keyObmvKsLHdsrr8D&maxRecords=100&view=Grid%20view";
+                  var nonglinicon = L.icon ({
+        							      iconUrl:'https://dl.airtable.com/.attachments/2c0d0a37d9e0f16cc8f97e7074ba4c42/2af95499.png',
+        							      iconSize:     [25, 25],
+        							       popupAnchor:  [0, -15]
+        							    });
+
+          var items1 = [];
+    var airtable_read_endpoint = "https://api.airtable.com/v0/appLXe1CjtR38C1dJ/%E7%BB%BC%E5%90%88?api_key=keyObmvKsLHdsrr8D&maxRecords=3&view=Grid%20view";
     var data = [];
     $.getJSON(airtable_read_endpoint, function(result) {
            $.each(result.records, function(key,value) {
-               items = {};
-                   items["name"] = value.fields.Name;
-                   items["latitud"] = value.fields.Lat;
-                   items["longitud"] = value.fields.Lng;
-                   data.push(items);
-                   console.log(items);
+               items1 = {};
+                   items1["name"] = value.fields.Name;
+                   items1["latitud"] = value.fields.Lat;
+                   items1["longitud"] = value.fields.Lng;
+                   data.push(items1);
+                   console.log(items1);
             }); // end .each
     }); // end getJSON
+
+    var items2 = [];
+var airtable_read_endpoint = "https://api.airtable.com/v0/appLXe1CjtR38C1dJ/%E5%86%9C%E6%9E%97?api_key=keyObmvKsLHdsrr8D&maxRecords=3&view=Grid%20view";
+var data = [];
+$.getJSON(airtable_read_endpoint, function(result) {
+     $.each(result.records, function(key,value) {
+         items2 = {};
+             items2["name"] = value.fields.Name;
+             items2["latitud"] = value.fields.Lat;
+             items2["longitud"] = value.fields.Lng;
+             data.push(items2);
+             console.log(items2);
+      }); // end .each
+}); // end getJSON
           </script>
           <script>
-function show_hometown(){
+function show_zonghe(){
 
-  for (var i in data) {
-      var latlng = L.latLng({ lat: data[i].latitud, lng: data[i].longitud });
+  for (var items1 in data) {
+      var latlng = L.latLng({ lat: data[items1].latitud, lng: data[items1].longitud });
       L.marker( latlng ,{icon:schoolicon})
-          .bindPopup( data[i].name  )
+          .bindPopup( data[items1].name  )
+          .addTo(map);
+  }
+}
+function show_nonglin(){
+
+  for (var items2 in data) {
+      var latlng = L.latLng({ lat: data[items2].latitud, lng: data[items2].longitud });
+      L.marker( latlng ,{icon:nonglinicon})
+          .bindPopup( data[items2].name  )
           .addTo(map);
   }
 }
