@@ -36,50 +36,50 @@
         							       popupAnchor:  [0, -15]
         							    });
 
-          var items1 = [];
+          var zonghe = [];
     var airtable_read_endpoint = "https://api.airtable.com/v0/appLXe1CjtR38C1dJ/%E7%BB%BC%E5%90%88?api_key=keyObmvKsLHdsrr8D&maxRecords=3&view=Grid%20view";
     var data = [];
     $.getJSON(airtable_read_endpoint, function(result) {
            $.each(result.records, function(key,value) {
-               items1 = {};
-                   items1["name"] = value.fields.Name1;
-                   items1["latitud"] = value.fields.Lat1;
-                   items1["longitud"] = value.fields.Lng1;
+               zonghe = {};
+                   zonghe["name"] = value.fields.Name1;
+                   zonghe["latitud"] = value.fields.Lat1;
+                   zonghe["longitud"] = value.fields.Lng1;
                    data.push(items1);
                    console.log(items1);
             }); // end .each
     }); // end getJSON
 
-    var items2 = [];
+    var nonglin = [];
 var airtable_read_endpoint = "https://api.airtable.com/v0/apptK8KFv0Aa97iUt/Table%201?api_key=keyObmvKsLHdsrr8D&maxRecords=3&view=Grid%20view";
 var data = [];
 $.getJSON(airtable_read_endpoint, function(result) {
      $.each(result.records, function(key,value) {
-         items2 = {};
-             items2["name"] = value.fields.Name2;
-             items2["latitud"] = value.fields.Lat2;
-             items2["longitud"] = value.fields.Lng2;
-             data.push(items2);
-             console.log(items2);
+         nonglin = {};
+             nonglin["name"] = value.fields.Name2;
+             nonglin["latitud"] = value.fields.Lat2;
+             nonglin["longitud"] = value.fields.Lng2;
+             data.push(nonglin);
+             console.log(nonglin);
       }); // end .each
 }); // end getJSON
           </script>
           <script>
 function show_zonghe(){
 
-  for (var items1 in data) {
-      var latlng = L.latLng({ lat: data[items1].latitud, lng: data[items1].longitud });
+  for (var zonghe in data) {
+      var latlng = L.latLng({ lat: data[zonghe].latitud, lng: data[zonghe].longitud });
       L.marker( latlng ,{icon:schoolicon})
-          .bindPopup( data[items1].name  )
+          .bindPopup( data[zonghe].name  )
           .addTo(map);
   }
 }
 function show_nonglin(){
 
-  for (var items2 in data) {
-      var latlng = L.latLng({ lat: data[items2].latitud, lng: data[items2].longitud });
+  for (var nonglin in data) {
+      var latlng = L.latLng({ lat: data[nonglin].latitud, lng: data[nonglin].longitud });
       L.marker( latlng ,{icon:nonglinicon})
-          .bindPopup( data[items2].name  )
+          .bindPopup( data[nonglin].name  )
           .addTo(map);
   }
 }
